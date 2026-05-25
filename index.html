@@ -259,7 +259,7 @@
         // API CONFIGURATION
         // =========================================================================
         var API = {
-            baseUrl: 'https://script.google.com/macros/s/AKfycbx9ILJwWGF365DQnwRHJ0WgneyFNjHIOu6YeEoFvHRzsN97zXWy11spyefJYcz5puNw/exec',  // Set this to your GAS deployment URL
+            baseUrl: 'https://script.google.com/macros/s/AKfycbyY_bCBoH8L4NdIz7za_1Sk7Y53Gshzy3NQ5vdaQdh6kh0lmqi-hqPQRXAK9x3mVET9Vw/exec',  // Set this to your GAS deployment URL
             getUrl: function(endpoint) {
                 var params = [];
                 for (var i = 1; i < arguments.length; i++) {
@@ -297,10 +297,6 @@
                     try {
                         var xhr = new XMLHttpRequest();
                         xhr.open(method, url, true);
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        if (API.token) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + API.token);
-                        }
                         xhr.onreadystatechange = function() {
                             if (xhr.readyState === 4) {
                                 try {
