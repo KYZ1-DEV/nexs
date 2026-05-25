@@ -261,14 +261,6 @@
         var API = {
             baseUrl: 'https://script.google.com/macros/s/AKfycbyY_bCBoH8L4NdIz7za_1Sk7Y53Gshzy3NQ5vdaQdh6kh0lmqi-hqPQRXAK9x3mVET9Vw/exec',  // Set this to your GAS deployment URL
             getUrl: function(endpoint) {
-                var params = [];
-                for (var i = 1; i < arguments.length; i++) {
-                    if (typeof arguments[i] === 'object') {
-                        Object.keys(arguments[i]).forEach(function(k) {
-                            params.push('_token=' + encodeURIComponent(arguments[i][k]));
-                        });
-                    }
-                }
                 var sep = endpoint.indexOf('?') === -1 ? '?' : '&';
                 return this.baseUrl + sep + 'route=' + encodeURIComponent(endpoint);
             },
@@ -289,7 +281,7 @@
                     options.payload = JSON.stringify(data);
                 }
                 if (API.token) {
-                    url += (endpoint.indexOf('?') === -1 ? '?' : '&') + '_token=' + encodeURIComponent(API.token);
+                    url += '&_token=' + encodeURIComponent(API.token);
                 }
                 url += '&_method=' + method;
 
